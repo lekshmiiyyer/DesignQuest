@@ -427,7 +427,19 @@ function App() {
         </div>
       </div>
     </div>
-
+     {/* Coordinator 5 */}
+     <div className="contact-card">
+      <img src="/tony.jpg" alt="Tony K Seby" className="contact-image" />
+      <div className="contact-details">
+        <h3 className="contact-name">Tony K Seby</h3>
+        <p className="contact-role">Event Coordinator</p>
+        <div className="social-links">
+          <a href="https://www.linkedin.com/in/tonykseby/" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-linkedin"></i> LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
     {/* Coordinator 4 */}
     <div className="contact-card">
       <img src="/dhan.jpg" alt="Dhanisa R" className="contact-image" />
@@ -442,19 +454,7 @@ function App() {
       </div>
     </div>
 
-    {/* Coordinator 5 */}
-    <div className="contact-card">
-      <img src="/tony.jpg" alt="Tony K Seby" className="contact-image" />
-      <div className="contact-details">
-        <h3 className="contact-name">Tony K Seby</h3>
-        <p className="contact-role">Event Coordinator</p>
-        <div className="social-links">
-          <a href="https://www.linkedin.com/in/tonykseby/" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-linkedin"></i> LinkedIn
-          </a>
-        </div>
-      </div>
-    </div>
+   
   </div>
 </section>
 

@@ -645,30 +645,39 @@ body {
 
 .contact-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* First row: 2 columns */
-  gap: 30px;
+  grid-template-columns: repeat(2, minmax(200px, 1fr)); /* Two equal columns */
+  gap: 100px; /* Increased space between cards */
   margin-top: 40px;
+  justify-content: center; /* Center align */
 }
 
-/* Create a new row for the next three cards */
-.contact-container .contact-card:nth-child(n+3) {
+/* Ensure first two coordinators are on the first row */
+.contact-container .contact-card:nth-child(1),
+.contact-container .contact-card:nth-child(2) {
   grid-column: span 1;
 }
 
-.contact-container .contact-card:nth-child(3) {
-  grid-column: 1 / -1; /* Forces new row */
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-}
-
+/* Ensure remaining three coordinators are in the second row */
 .contact-container .contact-card:nth-child(3),
 .contact-container .contact-card:nth-child(4),
 .contact-container .contact-card:nth-child(5) {
-  width: 30%; /* Equal width for 3 cards in second row */
+  grid-column: span 1;
 }
 
-/* Ensure equal sizing for all cards */
+/* Proper spacing in full screen */
+@media (min-width: 1024px) {
+  .contact-container {
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    justify-content: space-between; /* Ensures equal spacing between coordinators */
+  }
+
+  .contact-container .contact-card {
+    flex: 1;
+    min-width: 250px;
+  }
+}
+
+/* Ensure uniform styling */
 .contact-card {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
@@ -677,7 +686,7 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
   position: relative;
-  backdrop-filter: blur(10px); /* Frosted glass effect */
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   width: 100%;
 }
@@ -688,7 +697,7 @@ body {
 }
 
 .contact-image {
-  width: 120px; /* Consistent size */
+  width: 120px;
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
@@ -768,16 +777,17 @@ body {
   .contact-container .contact-card:nth-child(3),
   .contact-container .contact-card:nth-child(4),
   .contact-container .contact-card:nth-child(5) {
-    width: 100%; /* Full width on smaller screens */
+    grid-column: 1 / -1; /* Forces the card to be in a new row */
+    justify-self: center; /* Centers it horizontally */
   }
 }
+
 
 /* Import Font Awesome for icons */
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
 
 /* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
-
 /* Call-to-Action Section */
 .cta-section {
   padding: 80px 10%;
