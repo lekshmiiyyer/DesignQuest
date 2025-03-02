@@ -3,6 +3,32 @@ import { motion } from "framer-motion";
 import "./App.css";
 
 function App() {
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [trail, setTrail] = useState([]);
+
+  useEffect(() => {
+    const updateCursorPosition = (e) => {
+      setCursorPosition({ x: e.clientX, y: e.clientY });
+
+      // Add new trail position
+      setTrail((prevTrail) => {
+        const newTrail = [...prevTrail, { x: e.clientX, y: e.clientY }];
+        if (newTrail.length > 15) {
+          newTrail.shift(); // Keep the trail length limited
+        }
+        return newTrail;
+      });
+    };
+
+    window.addEventListener("mousemove", updateCursorPosition);
+
+    return () => {
+      window.removeEventListener("mousemove", updateCursorPosition);
+    };
+  }, []);
+
+
+
   const [showProblems, setShowProblems] = useState(false);
 
   useEffect(() => {
@@ -28,8 +54,29 @@ function App() {
     }
   };
   return (
-    <div className="app">
-      {/* Navbar */}
+    
+         <div className="app">
+       <div
+        className="custom-cursor"
+        style={{
+          left: `${cursorPosition.x}px`,
+          top: `${cursorPosition.y}px`,
+        }}
+      ></div>
+
+      {/* Magic Wave Cursor Trail */}
+      {trail.map((pos, index) => (
+        <div
+          key={index}
+          className="cursor-trail"
+          style={{
+            left: `${pos.x}px`,
+            top: `${pos.y}px`,
+            opacity: 1 - index / trail.length, // Fade out the trail
+            transform: `scale(${1 - index / trail.length})`, // Shrink the trail
+          }}
+        ></div>
+      ))}
    {/* Navbar */}
 <nav className="navbar">
   <ul>

@@ -816,3 +816,43 @@ body {
   background: #f5f5f5;
   transform: translateY(-5px);
 }
+/* Custom Arrow Cursor */
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2300ccff"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat center center;
+  background-size: contain;
+  pointer-events: none; /* Ensure the cursor doesn't interfere with clicks */
+  transform: translate(-50%, -50%);
+  z-index: 1000; /* Ensure the cursor is above all other elements */
+  transition: transform 0.1s ease;
+}
+
+/* Magic Wave Cursor Trail */
+.cursor-trail {
+  position: fixed;
+  width: 30px;
+  height: 25px;
+  background: radial-gradient(circle, #f70bd3, transparent);
+  border-radius: 50%;
+  pointer-events: none; /* Ensure the trail doesn't interfere with clicks */
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999; /* Ensure the trail is below the cursor */
+}
+
+/* Hide the default cursor */
+body {
+  cursor: none;
+}
+
+/* Add hover effects to links and buttons */
+a, button {
+  position: relative;
+  z-index: 1; /* Ensure links/buttons are above the cursor */
+}
+
+a:hover, button:hover {
+  color: #ff6f61; /* Change text color on hover */
+}
