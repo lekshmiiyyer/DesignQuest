@@ -170,6 +170,14 @@ function App() {
         </div>
       </section>
 
+{/* Venue Section */}
+<section id="venue" className="venue-section">
+  <div className="venue-overlay">
+    <h2 className="venue-title">Venue</h2>
+  </div>
+</section>
+
+
 {/* Call-to-Action Section */}
 <section id="cta" className="cta-section">
   <div className="cta-content">
@@ -185,7 +193,6 @@ function App() {
     </a>
   </div>
 </section>
-
 
 
       {/* Event Schedule Section */}
@@ -277,7 +284,7 @@ function App() {
 
 {/* Poster Gallery Section */}
 <section id="gallery" className="gallery-section">
-  <h2 className="section-title">🖼 Event Posters</h2>
+  <h2 className="section-title">🖼 Event Gallery</h2>
   <div className="gallery-grid">
     {/* Coming Soon Box */}
     <div className="coming-soon-box">
@@ -298,7 +305,7 @@ function App() {
               <span className="faq-icon">➕</span>
             </button>
             <div className="faq-answer">
-              <p>Each team can have a maximum of 3 members.</p>
+              <p>Each team can have a maximum of 2 members.</p>
             </div>
           </div>
 
@@ -385,7 +392,9 @@ function App() {
 {/* Meet The Core Team Section */}
 <section id="contact" className="contact-section">
   <h2 className="section-title">🌟 Meet The Core Team</h2>
-  <div className="contact-container">
+  
+  {/* First Row: First Two Cards */}
+  <div className="contact-row">
     {/* Coordinator 1 */}
     <div className="contact-card">
       <img src="/lek.jpg" alt="Lekshmi L" className="contact-image" />
@@ -413,7 +422,10 @@ function App() {
         </div>
       </div>
     </div>
+  </div>
 
+  {/* Second Row: Next Three Cards */}
+  <div className="contact-row">
     {/* Coordinator 3 */}
     <div className="contact-card">
       <img src="/liya.jpg" alt="Liya Francis" className="contact-image" />
@@ -427,19 +439,7 @@ function App() {
         </div>
       </div>
     </div>
-     {/* Coordinator 5 */}
-     <div className="contact-card">
-      <img src="/tony.jpg" alt="Tony K Seby" className="contact-image" />
-      <div className="contact-details">
-        <h3 className="contact-name">Tony K Seby</h3>
-        <p className="contact-role">Event Coordinator</p>
-        <div className="social-links">
-          <a href="https://www.linkedin.com/in/tonykseby/" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-linkedin"></i> LinkedIn
-          </a>
-        </div>
-      </div>
-    </div>
+
     {/* Coordinator 4 */}
     <div className="contact-card">
       <img src="/dhan.jpg" alt="Dhanisa R" className="contact-image" />
@@ -454,9 +454,98 @@ function App() {
       </div>
     </div>
 
-   
+    {/* Coordinator 5 */}
+    <div className="contact-card">
+      <img src="/tony.jpg" alt="Tony K Seby" className="contact-image" />
+      <div className="contact-details">
+        <h3 className="contact-name">Tony K Seby</h3>
+        <p className="contact-role">Event Coordinator</p>
+        <div className="social-links">
+          <a href="https://www.linkedin.com/in/tonykseby/" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-linkedin"></i> LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+
+{/* Contact Section */}
+<section id="contact-info" className="contact-info-section">
+  <h2 className="section-title">📞 Contact Us</h2>
+  <div className="light-bg-box">
+    {/* Left Side: Phone Numbers and Contact Form */}
+    <div className="contact-left">
+      {/* Phone Numbers */}
+      <div className="contact-details">
+        <h3>Reach Out to Us</h3>
+        <p>For any queries or assistance, feel free to contact:</p>
+        <ul>
+          <li>📱 <a href="tel:+911234567890">+91 12345 67890</a></li>
+          <li>📱 <a href="tel:+911234567891">+91 12345 67891</a></li>
+        </ul>
+      </div>
+
+      {/* Contact Form */}
+      <div className="contact-form">
+        <h3>✉️ Send Us a Message</h3>
+        <form>
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message" rows="4" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+
+    {/* Right Side: Google Map */}
+    <div className="map-container">
+      <h3>📍 Our Location</h3>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.800873339365!2d76.21013387479867!3d10.357800989766629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7f65a7d7bc725%3A0x22dc855ba6cace68!2sChrist%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1741063616768!5m2!1sen!2sin"
+        width="100%"
+        height="300"
+        style={{ border: 0 }}
+        allowFullScreen=""
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+
+{/* Footer Section */}
+<footer id="footer" className="footer-section">
+  <div className="footer-content">
+    {/* Event Details */}
+    <div className="event-details">
+      <h3>DesignQuest 2025</h3>
+      <p>📅 March 14, 2025</p>
+      <p>📍 Christ College of Engineering, Irinjalakuda</p>
+      <p>⏰ 9 AM - 4 PM</p>
+    </div>
+
+    {/* Social Media Links */}
+    <div className="social-media">
+      <h3>Follow Us</h3>
+      <div className="social-links">
+        <a href="https://instagram.com/your-event-handle" target="_blank" rel="noopener noreferrer">
+          <i className="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://linkedin.com/company/your-event-handle" target="_blank" rel="noopener noreferrer">
+          <i className="fab fa-linkedin"></i> LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+
+  {/* Copyright */}
+  <div className="copyright">
+    <p>© 2025 DesignQuest. All rights reserved.</p>
+  </div>
+</footer>
+
 
 
     </div>

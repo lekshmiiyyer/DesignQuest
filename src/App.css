@@ -643,41 +643,28 @@ body {
   transform: translateX(-50%);
 }
 
-.contact-container {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(200px, 1fr)); /* Two equal columns */
-  gap: 100px; /* Increased space between cards */
-  margin-top: 40px;
-  justify-content: center; /* Center align */
+/* Rows for cards */
+.contact-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* Space between cards */
+  margin-bottom: 40px; /* Space between rows */
+  flex-wrap: wrap; /* Wrap cards on smaller screens */
 }
 
-/* Ensure first two coordinators are on the first row */
-.contact-container .contact-card:nth-child(1),
-.contact-container .contact-card:nth-child(2) {
-  grid-column: span 1;
+/* First row: 2 cards */
+.contact-row:first-child .contact-card {
+  flex: 1 1 calc(50% - 40px); /* Two cards in the first row */
+  max-width: calc(50% - 40px); /* Ensure equal width */
 }
 
-/* Ensure remaining three coordinators are in the second row */
-.contact-container .contact-card:nth-child(3),
-.contact-container .contact-card:nth-child(4),
-.contact-container .contact-card:nth-child(5) {
-  grid-column: span 1;
+/* Second row: 3 cards */
+.contact-row:last-child .contact-card {
+  flex: 1 1 calc(33.33% - 40px); /* Three cards in the second row */
+  max-width: calc(33.33% - 40px); /* Ensure equal width */
 }
 
-/* Proper spacing in full screen */
-@media (min-width: 1024px) {
-  .contact-container {
-    grid-template-columns: repeat(2, minmax(250px, 1fr));
-    justify-content: space-between; /* Ensures equal spacing between coordinators */
-  }
-
-  .contact-container .contact-card {
-    flex: 1;
-    min-width: 250px;
-  }
-}
-
-/* Ensure uniform styling */
+/* Card styling */
 .contact-card {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
@@ -686,9 +673,8 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
   position: relative;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px); /* Frosted glass effect */
   border: 1px solid rgba(255, 255, 255, 0.1);
-  width: 100%;
 }
 
 .contact-card:hover {
@@ -700,7 +686,7 @@ body {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  object-fit: cover;
+  object-fit: cover; /* Ensure images fit perfectly */
   margin-bottom: 20px;
   border: 4px solid #00ccff;
   transition: transform 0.3s ease, border-color 0.3s ease;
@@ -708,7 +694,7 @@ body {
 
 .contact-card:hover .contact-image {
   transform: scale(1.1);
-  border-color: #ff6f61;
+  border-color: #ff6f61; /* Change border color on hover */
 }
 
 .contact-details {
@@ -761,7 +747,7 @@ body {
 }
 
 .social-links a:hover {
-  color: #ff6f61;
+  color: #ff6f61; /* Change color on hover */
 }
 
 .social-links i {
@@ -769,46 +755,72 @@ body {
 }
 
 /* Responsive adjustments */
-@media (max-width: 1024px) {
-  .contact-container {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-container .contact-card:nth-child(3),
-  .contact-container .contact-card:nth-child(4),
-  .contact-container .contact-card:nth-child(5) {
-    grid-column: 1 / -1; /* Forces the card to be in a new row */
-    justify-self: center; /* Centers it horizontally */
+@media (max-width: 768px) {
+  .contact-row:first-child .contact-card,
+  .contact-row:last-child .contact-card {
+    flex: 1 1 100%; /* Stack cards vertically on smaller screens */
+    max-width: 100%;
   }
 }
-
 
 /* Import Font Awesome for icons */
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
 
 /* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
-/* Call-to-Action Section */
+
+/* CTA Section */
 .cta-section {
   padding: 80px 10%;
-  background: #00ccff; /* Bright blue background to stand out */
+  background: linear-gradient(135deg, #00ccff, #0066ff); /* Gradient for a modern look */
   color: white;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-top: 150px;
+}
+
+/* Neon border effect */
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 4px solid transparent;
+  border-radius: 12px;
+  animation: neon-border 3s infinite alternate;
+}
+
+@keyframes neon-border {
+  0% {
+    border-color: #00ccff;
+    box-shadow: 0 0 10px #00ccff, 0 0 20px #00ccff, 0 0 30px #00ccff;
+  }
+  100% {
+    border-color: #0066ff;
+    box-shadow: 0 0 20px #0066ff, 0 0 40px #0066ff, 0 0 60px #0066ff;
+  }
 }
 
 .cta-content {
   max-width: 800px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .cta-title {
   font-size: 2.5rem;
   margin-bottom: 20px;
+  animation: fade-in 1.5s ease-in-out;
 }
 
 .cta-text {
   font-size: 1.2rem;
   margin-bottom: 30px;
+  animation: fade-in 2s ease-in-out;
 }
 
 .cta-button {
@@ -819,13 +831,40 @@ body {
   font-weight: bold;
   border-radius: 8px;
   text-decoration: none;
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  animation: pulse 2s infinite;
 }
 
 .cta-button:hover {
   background: #f5f5f5;
   transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
 }
+
+/* Animations */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 /* Custom Arrow Cursor */
 .custom-cursor {
   position: fixed;
@@ -865,4 +904,288 @@ a, button {
 
 a:hover, button:hover {
   color: #ff6f61; /* Change text color on hover */
+}
+
+/* Footer Section */
+.footer-section {
+  padding: 60px 10% 20px;
+  background: #1a1a40; /* Dark background */
+  color: white;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.event-details {
+  text-align: left;
+}
+
+.event-details h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #00ccff;
+}
+
+.event-details p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #ddd;
+}
+
+.social-media {
+  text-align: left;
+}
+
+.social-media h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #00ccff;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.social-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-links a:hover {
+  color: #00ccff;
+}
+
+.social-links i {
+  font-size: 1.5rem;
+}
+
+.copyright {
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .event-details,
+  .social-media {
+    text-align: center;
+  }
+}
+/* Venue Section */
+.venue-section {
+  position: relative;
+  height: 400px; /* Adjust height as needed */
+  background-image: url('/christ.jpg'); /* Add your college image */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden; /* Ensure no overflow */
+}
+
+/* Venue Overlay */
+.venue-overlay {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  padding: 40px;
+  border-radius: 12px;
+  backdrop-filter: blur(5px); /* Frosted glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+  animation: fadeIn 1.5s ease-in-out; /* Fade-in animation */
+}
+
+/* Venue Title */
+.venue-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #00ccff; /* Light blue for contrast */
+  text-shadow: 0 0 10px rgba(0, 204, 255, 0.7), 0 0 20px rgba(0, 204, 255, 0.5); /* Neon glow effect */
+}
+
+/* Venue Section */
+.venue-section {
+  position: relative;
+  height: 400px; /* Adjust height as needed */
+  background-image: url('/christ.jpg'); /* Add your college image */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden; /* Ensure no overflow */
+}
+
+/* Semi-Transparent White Overlay */
+.venue-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.107); /* Semi-transparent white overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Venue Title */
+.venue-title {
+  font-size: 4rem; /* Large font size */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px; /* Wider letter spacing */
+  color: #0a0a2a; /* Dark blue for contrast */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.895), 0 0 20px rgba(255, 255, 255, 0.5); /* Subtle glow */
+  margin: 0; /* Remove default margin */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .venue-title {
+    font-size: 3rem; /* Smaller font for mobile */
+    letter-spacing: 2px; /* Adjust letter spacing for mobile */
+  }
+}
+/* Contact Info Section */
+.contact-info-section {
+  padding: 80px 10%;
+  background: #1a1a40; /* Dark blue background */
+  color: white;
+  text-align: center;
+}
+
+/* Light Background Box */
+.light-bg-box {
+  background: rgba(255, 255, 255, 0.1); /* Light background */
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  max-width: 1200px; /* Wider box to accommodate map */
+  margin: 0 auto; /* Center the box */
+  display: flex;
+  gap: 40px; /* Space between left and right content */
+}
+
+/* Left Side: Phone Numbers and Contact Form */
+.contact-left {
+  flex: 1; /* Takes up remaining space */
+  text-align: left;
+}
+
+/* Contact Details */
+.contact-details h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #00ccff;
+}
+
+.contact-details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-details ul li {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.contact-details ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-details ul li a:hover {
+  color: #00ccff;
+}
+
+/* Contact Form */
+.contact-form h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #00ccff;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  background: #00ccff;
+  color: #0a0a2a;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #0066ff;
+  transform: translateY(-3px);
+}
+
+/* Right Side: Google Map */
+.map-container {
+  flex: 1; /* Takes up equal space */
+  text-align: left;
+}
+
+.map-container h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #00ccff;
+}
+
+.map-container iframe {
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 300px; /* Smaller map size */
 }
