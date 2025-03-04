@@ -459,7 +459,7 @@ function App() {
       <img src="/tony.jpg" alt="Tony K Seby" className="contact-image" />
       <div className="contact-details">
         <h3 className="contact-name">Tony K Seby</h3>
-        <p className="contact-role">Event Coordinator</p>
+        <p className="contact-role">Treasurer</p>
         <div className="social-links">
           <a href="https://www.linkedin.com/in/tonykseby/" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-linkedin"></i> LinkedIn
@@ -467,7 +467,32 @@ function App() {
         </div>
       </div>
     </div>
+    <div className="contact-card">
+      <img src="/alan.jpg" alt="Alan Martin" className="contact-image" />
+      <div className="contact-details">
+        <h3 className="contact-name">Alan Martin</h3>
+        <p className="contact-role">Marketing Lead</p>
+        <div className="social-links">
+          <a href="https://www.linkedin.com/in/alanmartin7/" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-linkedin"></i> LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+    <div className="contact-card">
+      <img src="/thoma.webp" alt="Tony K Seby" className="contact-image" />
+      <div className="contact-details">
+        <h3 className="contact-name">Thomas Sabu</h3>
+        <p className="contact-role">Hospitality Lead</p>
+        <div className="social-links">
+          <a href="https://www.linkedin.com/in/thomassabu2003/" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-linkedin"></i> LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
+  
 </section>
 
 {/* Contact Section */}
