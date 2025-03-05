@@ -573,7 +573,7 @@ function App() {
       <h3>DesignQuest 2025</h3>
       <p>📅 March 14, 2025</p>
       <p>📍 Christ College of Engineering, Irinjalakuda</p>
-      <p>⏰ 9 AM - 4 PM</p>
+      <p>⏰ 9 AM - 7 PM</p>
     </div>
 
     {/* Social Media Links */}
