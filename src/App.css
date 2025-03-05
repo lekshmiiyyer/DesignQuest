@@ -603,7 +603,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(250, 254, 254, 0.814); /* Light shade of white */
+  background: rgba(255, 255, 255, 100); /* Light shade of white */
   border-radius: 50%; /* Circular shape */
   width: 150px;
   height: 150px;

@@ -377,14 +377,19 @@ function App() {
 <section id="partners" className="partners-section">
   <h2 className="section-title">🤝 Partnering With</h2>
   <div className="partners-container">
-    {/* Partner 1 - Devfolio */}
-    <a href="https://devfolio.co" target="_blank" rel="noopener noreferrer" className="partner-logo">
-      <img src="/devf.png" alt="Devfolio Logo" />
+    {/* Partner 1 - Devpost */}
+    <a href="https://devpost.com/" target="_blank" rel="noopener noreferrer" className="partner-logo">
+      <img src="/devpost.png" alt="DevPost Logo" />
     </a>
 
     {/* Partner 2 - GTech MuLearn */}
     <a href="https://mulearn.org" target="_blank" rel="noopener noreferrer" className="partner-logo">
       <img src="/mu1.png" alt="GTech MuLearn Logo" />
+    </a>
+
+    {/* Partner 3 - talrop*/}
+    <a href="https://talrop.com/" target="_blank" rel="noopener noreferrer" className="partner-logo">
+      <img src="/talrop.png" alt="Talrop Logo" />
     </a>
   </div>
 </section>
@@ -512,15 +517,15 @@ function App() {
       </div>
 
       {/* Contact Form */}
-      <div className="contact-form">
-        <h3>✉️ Send Us a Message</h3>
-        <form>
-          <input type="text" placeholder="Your Name" required />
-          <input type="email" placeholder="Your Email" required />
-          <textarea placeholder="Your Message" rows="4" required></textarea>
-          <button type="submit">Send Message</button>
-        </form>
-      </div>
+<div className="contact-form">
+  <h3>✉️ Send Us a Message</h3>
+  <form action="https://formspree.io/f/xanewyjq" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</div>
     </div>
 
     {/* Right Side: Google Map */}
