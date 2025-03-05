@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import "./App.css";
 
 function App() {
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false)
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [trail, setTrail] = useState([]);
 
@@ -282,17 +283,36 @@ function App() {
         </div>
       </section>
 
-{/* Poster Gallery Section */}
-<section id="gallery" className="gallery-section">
-  <h2 className="section-title">🖼 Event Gallery</h2>
-  <div className="gallery-grid">
-    {/* Coming Soon Box */}
-    <div className="coming-soon-box">
-      <h3>Coming Soon</h3>
-      <p>Our amazing gallery,posters are in the works. Stay tuned!</p>
-    </div>
-  </div>
-</section>
+      <section id="gallery" className="gallery-section">
+      <h2 className="section-title">🖼 Event Gallery</h2>
+      <div className="gallery-grid">
+        {/* Poster Image with Zoom Effect */}
+        <div
+          className="poster-container"
+          onClick={() => setIsLightboxOpen(true)} // Open lightbox on click
+        >
+          <img
+            src="/poff.jpg" // Path to your poster image
+            alt="DesignQuest Official Poster"
+            className="poster-image"
+          />
+          <div className="overlay">
+            <p>Click to view full size</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Custom Lightbox */}
+      {isLightboxOpen && (
+        <div className="lightbox" onClick={() => setIsLightboxOpen(false)}>
+          <img
+            src="/poff.jpg" // Path to your poster image
+            alt="DesignQuest Official Poster"
+            className="lightbox-image"
+          />
+        </div>
+      )}
+    </section>
 
 {/* FAQs Section */}
 <section id="faqs" className="faq-section">
@@ -436,7 +456,7 @@ function App() {
       <img src="/liya.jpg" alt="Liya Francis" className="contact-image" />
       <div className="contact-details">
         <h3 className="contact-name">Liya Francis</h3>
-        <p className="contact-role">Event Coordinator</p>
+        <p className="contact-role">Event Coordinator,Content Writer</p>
         <div className="social-links">
           <a href="https://www.linkedin.com/in/liyafrancis03/" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-linkedin"></i> LinkedIn
@@ -476,7 +496,7 @@ function App() {
       <img src="/alan.jpg" alt="Alan Martin" className="contact-image" />
       <div className="contact-details">
         <h3 className="contact-name">Alan Martin</h3>
-        <p className="contact-role">Marketing Lead</p>
+        <p className="contact-role">Event Coordinator</p>
         <div className="social-links">
           <a href="https://www.linkedin.com/in/alanmartin7/" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-linkedin"></i> LinkedIn
@@ -485,10 +505,10 @@ function App() {
       </div>
     </div>
     <div className="contact-card">
-      <img src="/thoma.webp" alt="Tony K Seby" className="contact-image" />
+      <img src="/thoma.webp" alt="Thomas Sabu" className="contact-image" />
       <div className="contact-details">
         <h3 className="contact-name">Thomas Sabu</h3>
-        <p className="contact-role">Hospitality Lead</p>
+        <p className="contact-role">Event Hospitality Lead</p>
         <div className="social-links">
           <a href="https://www.linkedin.com/in/thomassabu2003/" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-linkedin"></i> LinkedIn
