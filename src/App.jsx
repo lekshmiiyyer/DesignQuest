@@ -181,7 +181,7 @@ function App() {
 {/* Call-to-Action Section */}
 <section id="cta" className="cta-section">
   <div className="cta-content">
-    <h2 className="cta-title">🚀 Ready to Join DesignQuest 2025?</h2>
+    <h2 className="cta-title">🚀 Ready to Join DesignQuest?</h2>
     <p className="cta-text">Register now and showcase your design skills!</p>
     <a
       href="https://devfolio.co" // Replace with your registration link
@@ -189,7 +189,7 @@ function App() {
       rel="noopener noreferrer"
       className="cta-button"
     >
-      Register for Free
+      Register for Free via DevPost
     </a>
   </div>
 </section>
@@ -221,7 +221,7 @@ function App() {
           <div className="timeline-item">
             <div className="timeline-icon">🏆</div>
             <div className="timeline-content">
-              <h3>4:00 PM</h3>
+              <h3>4:30 PM</h3>
               <p>Judging Time 🏆</p>
             </div>
           </div>
@@ -289,7 +289,7 @@ function App() {
     {/* Coming Soon Box */}
     <div className="coming-soon-box">
       <h3>Coming Soon</h3>
-      <p>Our amazing posters are in the works. Stay tuned!</p>
+      <p>Our amazing gallery,posters are in the works. Stay tuned!</p>
     </div>
   </div>
 </section>
@@ -338,7 +338,7 @@ function App() {
               <span className="faq-icon">➕</span>
             </button>
             <div className="faq-answer">
-              <p>Yes, individual participation is allowed, but teams of up to 2 members are encouraged.</p>
+              <p> Teams of up to 2 members are encouraged.</p>
             </div>
           </div>
 
@@ -506,8 +506,8 @@ function App() {
         <h3>Reach Out to Us</h3>
         <p>For any queries or assistance, feel free to contact:</p>
         <ul>
-          <li>📱 <a href="tel:+911234567890">+91 12345 67890</a></li>
-          <li>📱 <a href="tel:+911234567891">+91 12345 67891</a></li>
+          <li>📱Adhith <a href="tel:+911234567890">+91 8139820095</a></li>
+          <li>📱Lekshmi <a href="tel:+911234567891">+91 8281075288</a></li>
         </ul>
       </div>
 
@@ -558,7 +558,7 @@ function App() {
         <a href="https://instagram.com/your-event-handle" target="_blank" rel="noopener noreferrer">
           <i className="fab fa-instagram"></i> Instagram
         </a>
-        <a href="https://linkedin.com/company/your-event-handle" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/company/designquest25/" target="_blank" rel="noopener noreferrer">
           <i className="fab fa-linkedin"></i> LinkedIn
         </a>
       </div>

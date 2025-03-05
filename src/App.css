@@ -988,7 +988,7 @@ a:hover, button:hover {
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: white;
+  color: rgb(255, 255, 255);
   overflow: hidden; /* Ensure no overflow */
 }
 
@@ -997,7 +997,7 @@ a:hover, button:hover {
   background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
   padding: 40px;
   border-radius: 12px;
-  backdrop-filter: blur(5px); /* Frosted glass effect */
+  backdrop-filter: blur(3px); /* Frosted glass effect */
   border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
   animation: fadeIn 1.5s ease-in-out; /* Fade-in animation */
 }
@@ -1029,17 +1029,22 @@ a:hover, button:hover {
   overflow: hidden; /* Ensure no overflow */
 }
 
-/* Semi-Transparent White Overlay */
+/* Semi-Transparent White Overlay (Bottom Half Only) */
 .venue-overlay {
   position: absolute;
-  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.107); /* Semi-transparent white overlay */
+  height: 42%; /* Cover only the bottom half */
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white overlay */
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Align text to the top of the overlay */
   justify-content: center;
+  padding-top: 20px; /* Add some padding to position the text */
+}
+.venue-overlay:hover {
+  background: rgba(255, 255, 255, 0.2); /* Slightly darker overlay on hover */
+  transition: background 0.3s ease;
 }
 
 /* Venue Title */
@@ -1050,7 +1055,7 @@ a:hover, button:hover {
   text-transform: uppercase;
   letter-spacing: 4px; /* Wider letter spacing */
   color: #0a0a2a; /* Dark blue for contrast */
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.895), 0 0 20px rgba(255, 255, 255, 0.5); /* Subtle glow */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5); /* Subtle glow */
   margin: 0; /* Remove default margin */
 }
 
