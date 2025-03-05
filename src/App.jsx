@@ -580,7 +580,7 @@ function App() {
     <div className="social-media">
       <h3>Follow Us</h3>
       <div className="social-links">
-        <a href="https://instagram.com/your-event-handle" target="_blank" rel="noopener noreferrer">
+        <a href="https://instagram.com/code_cce" target="_blank" rel="noopener noreferrer">
           <i className="fab fa-instagram"></i> Instagram
         </a>
         <a href="https://www.linkedin.com/company/designquest25/" target="_blank" rel="noopener noreferrer">
