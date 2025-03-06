@@ -174,7 +174,7 @@ body {
     text-align: center;
     height: auto;
     padding: 40px 10%;
-    background-color: blue; /* Ensure background color is set for mobile */
+    background-color: #1a1a40; /* Ensure background color is set for mobile */
   }
 
   .hero-left,
