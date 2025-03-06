@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import "./App.css";
 
 function App() {
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true); // Loading state
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
@@ -92,40 +93,46 @@ function App() {
             ></div>
           ))}
 
-          {/* Navbar */}
-          <nav className="navbar">
-            <ul>
-              <li><a href="#home">🏠 Home</a></li>
-              <li><a href="#about">ℹ️ About</a></li>
-              <li><a href="#prizes">🏆 Prizes</a></li>
-              <li><a href="#schedule">📅 Schedule</a></li>
-              <li><a href="#problem-statements">❓ Problems</a></li>
-              <li><a href="#gallery">🖼 Gallery</a></li>
-              <li><a href="#faqs">❓ FAQs</a></li>
-              <li><a href="#contact">📩 Contact</a></li>
-            </ul>
-          </nav>
+<nav className="navbar">
+  <div className="navbar-container">
+    <div className="navbar-logo">
+      <a href="#home">DesignQuest</a>
+    </div>
+    <div className="navbar-toggle" onClick={() => setIsNavOpen(!isNavOpen)}>
+      <span className="hamburger"></span>
+    </div>
+    <ul className={`navbar-menu ${isNavOpen ? "active" : ""}`}>
+      <li><a href="#home">🏠 Home</a></li>
+      <li><a href="#about">ℹ️ About</a></li>
+      <li><a href="#prizes">🏆 Prizes</a></li>
+      <li><a href="#schedule">📅 Schedule</a></li>
+      <li><a href="#problem-statements">❓ Problems</a></li>
+      <li><a href="#gallery">🖼 Gallery</a></li>
+      <li><a href="#faqs">❓ FAQs</a></li>
+      <li><a href="#contact">📩 Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-          {/* Rest of your website content */}
-          <header id="home" className="hero">
-            {/* Left Side - Event Info (Full Left) */}
-            <div className="hero-left">
-              <p className="event-date">📅 March 14, 2025</p>
-              <h1 className="event-title"><img src="/main.png" alt="Design Quest" className="event-logo"/></h1>
-              <p className="event-duration">⏳ 7 Hours</p>
-              <p className="prize-pool">💰 Prize Pool: ₹7,000</p>
-            </div>
+<header id="home" className="hero">
+  {/* Left Side - Event Info */}
+  <div className="hero-left">
+    <p className="event-date">📅 March 14, 2025</p>
+    <h1 className="event-title"><img src="/main.png" alt="Design Quest" className="event-logo"/></h1>
+    <p className="event-duration">⏳ 7 Hours</p>
+    <p className="prize-pool">💰 Prize Pool: ₹7,000</p>
+  </div>
 
-            {/* Right Side - Image (Full Right) */}
-            <motion.div 
-              className="hero-right"
-              initial={{ opacity: 0, scale: 0.9 }} 
-              animate={{ opacity: 1, scale: 1 }} 
-              transition={{ duration: 1 }}
-            >
-              <img src="/log.png" alt="Design Competition" className="hero-image" />
-            </motion.div>
-          </header>
+  {/* Right Side - Image */}
+  <motion.div 
+    className="hero-right"
+    initial={{ opacity: 0, scale: 0.9 }} 
+    animate={{ opacity: 1, scale: 1 }} 
+    transition={{ duration: 1 }}
+  >
+    <img src="/log.png" alt="Design Competition" className="hero-image" />
+  </motion.div>
+</header>
 
           {/* What is DesignQuest? Section */}
           <section id="about" className="about-section">
