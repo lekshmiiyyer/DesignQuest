@@ -123,6 +123,7 @@ body {
   height: 100vh;
   margin-top: 60px; /* Account for fixed navbar */
   box-sizing: border-box;
+  background-color: #1a1a40; /* Ensure background color is set */
 }
 
 .hero-left {
@@ -173,6 +174,7 @@ body {
     text-align: center;
     height: auto;
     padding: 40px 10%;
+    background-color: blue; /* Ensure background color is set for mobile */
   }
 
   .hero-left,
