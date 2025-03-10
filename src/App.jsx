@@ -205,7 +205,7 @@ function App() {
               <h2 className="cta-title">🚀 Ready to Join DesignQuest?</h2>
               <p className="cta-text">Register now and showcase your design skills!</p>
               <a
-                href="https://devfolio.co" // Replace with your registration link
+                href="https://designquest25.devpost.com/" // Replace with your registration link
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cta-button"
