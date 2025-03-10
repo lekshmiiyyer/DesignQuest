@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./App.css";
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const [isNavOpen, setIsNavOpen] = useState(false);
