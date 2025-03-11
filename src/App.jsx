@@ -9,6 +9,7 @@ function App() {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [trail, setTrail] = useState([]);
+  const [lightboxImage, setLightboxImage] = useState('');
 
   useEffect(() => {
     const updateCursorPosition = (e) => {
@@ -304,35 +305,56 @@ function App() {
 
           {/* Gallery Section */}
           <section id="gallery" className="gallery-section">
-            <h2 className="section-title">🖼 Event Gallery</h2>
-            <div className="gallery-grid">
-              {/* Poster Image with Zoom Effect */}
-              <div
-                className="poster-container"
-                onClick={() => setIsLightboxOpen(true)} // Open lightbox on click
-              >
-                <img
-                  src="/poff.jpg" // Path to your poster image
-                  alt="DesignQuest Official Poster"
-                  className="poster-image"
-                />
-                <div className="overlay">
-                  <p>Click to view full size</p>
-                </div>
-              </div>
-            </div>
+  <h2 className="section-title">🖼 Event Gallery</h2>
+  <div className="gallery-grid">
+    {/* Poster Image with Zoom Effect */}
+    <div
+      className="poster-container"
+      onClick={() => {
+        setLightboxImage('/poff.jpg');
+        setIsLightboxOpen(true);
+      }}
+    >
+      <img
+        src="/poff.jpg" // Path to your poster image
+        alt="DesignQuest Official Poster"
+        className="poster-image"
+      />
+      <div className="overlay">
+        <p>Click to view full size</p>
+      </div>
+    </div>
 
-            {/* Custom Lightbox */}
-            {isLightboxOpen && (
-              <div className="lightbox" onClick={() => setIsLightboxOpen(false)}>
-                <img
-                  src="/poff.jpg" // Path to your poster image
-                  alt="DesignQuest Official Poster"
-                  className="lightbox-image"
-                />
-              </div>
-            )}
-          </section>
+    {/* Second Image with Zoom Effect */}
+    <div
+      className="poster-container"
+      onClick={() => {
+        setLightboxImage('/deadline.jpg');
+        setIsLightboxOpen(true);
+      }}
+    >
+      <img
+        src="/deadline.jpg" // Path to your new image
+        alt="DesignQuest Additional Image"
+        className="poster-image"
+      />
+      <div className="overlay">
+        <p>Click to view full size</p>
+      </div>
+    </div>
+  </div>
+
+  {/* Custom Lightbox */}
+  {isLightboxOpen && (
+    <div className="lightbox" onClick={() => setIsLightboxOpen(false)}>
+      <img
+        src={lightboxImage} // Dynamically set the image source
+        alt="DesignQuest Gallery Image"
+        className="lightbox-image"
+      />
+    </div>
+  )}
+</section>
 
           {/* FAQs Section */}
           <section id="faqs" className="faq-section">
