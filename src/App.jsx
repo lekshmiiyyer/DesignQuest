@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import "./App.css";
+import ProblemStatement1 from "./assets/ps1";
+import ProblemStatement2 from "./assets/ps2";
+import ProblemStatement3 from "./assets/ps3";
 import { Analytics } from "@vercel/analytics/react"
 
 function App() {
@@ -35,7 +39,7 @@ function App() {
   const [showProblems, setShowProblems] = useState(false);
 
   useEffect(() => {
-    const revealDate = new Date("March 14, 2025 08:50:00").getTime();
+    const revealDate = new Date("March 14, 2025 08:25:00").getTime();
 
     const checkTime = setInterval(() => {
       const now = new Date().getTime();
@@ -233,7 +237,7 @@ function App() {
               <div className="timeline-item">
                 <div className="timeline-icon">🍽</div>
                 <div className="timeline-content">
-                  <h3>12:00 PM</h3>
+                  <h3>12:15 PM</h3>
                   <p>Lunch Break 🍽</p>
                 </div>
               </div>
@@ -242,7 +246,7 @@ function App() {
               <div className="timeline-item">
                 <div className="timeline-icon">🏆</div>
                 <div className="timeline-content">
-                  <h3>4:30 PM</h3>
+                  <h3>4:15 PM</h3>
                   <p>Judging Time 🏆</p>
                 </div>
               </div>
@@ -258,50 +262,54 @@ function App() {
             </div>
           </section>
 
-          {/* Problem Statement Section */}
-          <section id="problem-statements" className="problem-section">
-            <h2 className="section-title">❓ Problem Statements</h2>
-            <div className="problem-box">
-              {showProblems ? (
-                <div className="problem-container">
-                  {/* Problem Statement 1 */}
-                  <div className="problem-card problem-1">
-                    <div className="problem-icon">📱</div>
-                    <div className="problem-details">
-                      <h3>Problem Statement 1</h3>
-                      <p className="problem-text">
-                        Design a mobile app interface for a sustainable shopping platform that encourages eco-friendly purchases.
-                      </p>
-                    </div>
+          <Router>
+  <Routes>
+    <Route
+      path="/"
+      element={
+        <section id="problem-statements" className="problem-section">
+          <h2 className="section-title">❓ Problem Statements</h2>
+          <div className="problem-box">
+            {showProblems ? (
+              <div className="problem-container">
+                {/* Problem Statement 1 */}
+                <Link to="/problem-1" className="problem-card problem-1">
+                  <div className="problem-icon">🧘‍♂️</div> {/* Updated emoji */}
+                  <div className="problem-details">
+                    <h3>Problem Statement 1</h3>
                   </div>
+                </Link>
 
-                  {/* Problem Statement 2 */}
-                  <div className="problem-card problem-2">
-                    <div className="problem-icon">🏋️</div>
-                    <div className="problem-details">
-                      <h3>Problem Statement 2</h3>
-                      <p className="problem-text">
-                        Create a dashboard for a fitness app that tracks user progress and provides personalized recommendations.
-                      </p>
-                    </div>
+                {/* Problem Statement 2 */}
+                <Link to="/problem-2" className="problem-card problem-2">
+                  <div className="problem-icon">🎉</div> {/* Updated emoji */}
+                  <div className="problem-details">
+                    <h3>Problem Statement 2</h3>
                   </div>
+                </Link>
 
-                  {/* Problem Statement 3 */}
-                  <div className="problem-card problem-3">
-                    <div className="problem-icon">🛒</div>
-                    <div className="problem-details">
-                      <h3>Problem Statement 3</h3>
-                      <p className="problem-text">
-                        Redesign the checkout flow for an e-commerce website to improve user experience and reduce cart abandonment.
-                      </p>
-                    </div>
+                {/* Problem Statement 3 */}
+                <Link to="/problem-3" className="problem-card problem-3">
+                  <div className="problem-icon">💼</div> {/* Updated emoji */}
+                  <div className="problem-details">
+                    <h3>Problem Statement 3</h3>
                   </div>
-                </div>
-              ) : (
-                <p className="reveal-message">Problem statements will be revealed on March 14, 2025 at 9:00 AM.</p>
-              )}
-            </div>
-          </section>
+                </Link>
+              </div>
+            ) : (
+              <p className="reveal-message">Problem statements will be revealed on March 14, 2025 at 8:30 AM.</p>
+            )}
+          </div>
+        </section>
+      }
+    />
+    <Route path="/problem-1" element={<ProblemStatement1 />} />
+    <Route path="/problem-2" element={<ProblemStatement2 />} />
+    <Route path="/problem-3" element={<ProblemStatement3 />} />
+  </Routes>
+</Router>
+
+
 
           {/* Gallery Section */}
           <section id="gallery" className="gallery-section">
