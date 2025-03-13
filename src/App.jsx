@@ -342,6 +342,45 @@ function App() {
         <p>Click to view full size</p>
       </div>
     </div>
+{/*thrid image*/}
+    <div
+      className="poster-container"
+      onClick={() => {
+        setLightboxImage('/flexx.png');
+        setIsLightboxOpen(true);
+      }}
+    >
+      <img
+        src="/flexx.png" // Path to your poster image
+        alt="DesignQuest Official Poster"
+        className="poster-image"
+      />
+      <div className="overlay">
+        <p>Click to view full size</p>
+      </div>
+    </div>
+
+    {/*fourth image*/}
+    <div
+      className="poster-container"
+      onClick={() => {
+        setLightboxImage('/see.png');
+        setIsLightboxOpen(true);
+      }}
+    >
+      <img
+        src="/see.png" // Path to your poster image
+        alt="DesignQuest Official Poster"
+        className="poster-image"
+      />
+      <div className="overlay">
+        <p>Click to view full size</p>
+      </div>
+    </div>
+
+
+
+
   </div>
 
   {/* Custom Lightbox */}
