@@ -70,6 +70,104 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  const posterWorks = [
+    { src: '/poff.jpg', alt: 'DesignQuest Official Poster' },
+    { src: '/deadline.jpg', alt: 'DesignQuest Additional Image' },
+    { src: '/flexx.png', alt: 'DesignQuest Flexx Poster' },
+    { src: '/see.png', alt: 'DesignQuest SEE Poster' },
+  ];
+
+  // Project Works (New)
+  const projectWorks = [
+    {
+      thumbnail: '/1.png',
+      videoLink: 'https://www.youtube.com/watch?v=project1',
+      title: 'Project 1: Micro-Jobs Marketplace',
+    },
+    {
+      thumbnail: '/2.png',
+      videoLink: 'https://www.youtube.com/watch?v=project2',
+      title: 'Project 2: Digital Event Planner',
+    },
+    {
+      thumbnail: '/3.png',
+      videoLink: 'https://www.youtube.com/watch?v=project3',
+      title: 'Project 3: Mind-Body Wellness Tracker',
+    },
+    {
+      thumbnail: '/4.png',
+      videoLink: 'https://www.youtube.com/watch?v=project3',
+      title: 'Project 4: Digital Event Planner',
+    },
+    {
+      thumbnail: '/5.jpg',
+      videoLink: 'https://www.youtube.com/watch?v=project3',
+      title: 'Project 5: Micro-Jobs Marketplace',
+    },
+    {
+      thumbnail: '/6.jpg',
+      videoLink: 'https://www.youtube.com/watch?v=project3',
+      title: 'Project 6: Micro-Jobs Marketplace',
+    },
+    {
+      thumbnail: '/7.jpg',
+      videoLink: 'https://www.youtube.com/watch?v=project3',
+      title: 'Project 7: Mind-Body Wellness Tracker',
+    },
+    {
+      thumbnail: '/8.jpg',
+      videoLink: 'https://www.youtube.com/watch?v=project3',
+      title: 'Project 8: Mind-Body Wellness Tracker',
+    },
+    {
+      thumbnail: '/9.jpg',
+      videoLink: 'https://www.youtube.com/watch?v=project3',
+      title: 'Project 9: Micro-Jobs Marketplace',
+    },
+    {
+      thumbnail: '/10.jpg',
+      videoLink: 'https://www.youtube.com/watch?v=project3',
+      title: 'Project 10: Micro-Jobs Marketplace',
+    },
+  ];
+
+  // Event Moments (New)
+  const eventMoments = [
+    { src: '/our/core.jpg', alt: 'Event Moment 1' },
+    { src: '/our/all.jpg', alt: 'Event Moment 2' },
+    { src: '/our/1.jpg', alt: 'Event Moment 1' },
+    { src: '/our/2.jpg', alt: 'Event Moment 2' },
+    { src: '/our/3.jpg', alt: 'Event Moment 3' },
+    { src: '/our/4.jpg', alt: 'Event Moment 4' },
+    { src: '/our/5.jpg', alt: 'Event Moment 1' },
+    { src: '/our/6.jpg', alt: 'Event Moment 2' },
+    { src: '/our/7.jpg', alt: 'Event Moment 3' },
+    { src: '/our/8.jpg', alt: 'Event Moment 4' },
+    { src: '/our/9.jpg', alt: 'Event Moment 1' },
+    { src: '/our/10.jpg', alt: 'Event Moment 2' },
+    { src: '/our/11.jpg', alt: 'Event Moment 3' },
+    { src: '/our/12.jpg', alt: 'Event Moment 4' },
+    { src: '/our/13.jpg', alt: 'Event Moment 2' },
+    { src: '/our/14.jpg', alt: 'Event Moment 3' },
+    { src: '/our/15.jpg', alt: 'Event Moment 4' },
+    { src: '/our/16.jpg', alt: 'Event Moment 2' },
+    { src: '/our/17.jpg', alt: 'Event Moment 3' },
+    { src: '/our/18.jpg', alt: 'Event Moment 4' },
+    { src: '/our/19.jpg', alt: 'Event Moment 2' },
+    { src: '/our/20.jpg', alt: 'Event Moment 3' },
+    { src: '/our/21.jpg', alt: 'Event Moment 4' },
+    { src: '/our/22.jpg', alt: 'Event Moment 2' },
+    { src: '/our/23.jpg', alt: 'Event Moment 3' },
+    { src: '/our/24.jpg', alt: 'Event Moment 4' },
+    { src: '/our/25.jpg', alt: 'Event Moment 4' },
+    { src: '/our/26.jpg', alt: 'Event Moment 2' },
+    { src: '/our/27.jpg', alt: 'Event Moment 3' },
+    { src: '/our/28.jpg', alt: 'Event Moment 4' },
+    { src: '/our/29.jpg', alt: 'Event Moment 3' },
+    { src: '/our/30.jpg', alt: 'Event Moment 4' },
+  ];
+
+
   return (
     <div className="app">
       {isLoading ? (
@@ -210,7 +308,7 @@ function App() {
               <h2 className="cta-title">🚀 Ready to Join DesignQuest?</h2>
               <p className="cta-text">Register now and showcase your design skills!</p>
               <a
-                href="https://designquest25.devpost.com/" // Replace with your registration link
+                href="#" // Replace with your registration link
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cta-button"
@@ -313,95 +411,90 @@ function App() {
 
           {/* Gallery Section */}
           <section id="gallery" className="gallery-section">
-  <h2 className="section-title">🖼 Event Gallery</h2>
-  <div className="gallery-grid">
-    {/* Poster Image with Zoom Effect */}
+      <h2 className="section-title">🖼 Event Gallery</h2>
+
+      {/* Poster Works Section */}
+      <h3 className="gallery-subtitle">Poster Works</h3>
+      <div className="gallery-grid">
+        {posterWorks.map((poster, index) => (
+          <div
+            key={index}
+            className="poster-container"
+            onClick={() => {
+              setLightboxImage(poster.src);
+              setIsLightboxOpen(true);
+            }}
+          >
+            <img
+              src={poster.src}
+              alt={poster.alt}
+              className="poster-image"
+            />
+            <div className="overlay">
+              <p>Click to view full size</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Project Works Section */}
+      <h3 className="gallery-subtitle">Project Works</h3>
+      <div className="gallery-grid">
+        {projectWorks.map((project, index) => (
+          <a
+            key={index}
+            href={project.videoLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-container"
+          >
+            <img
+              src={project.thumbnail}
+              alt={project.title}
+              className="project-thumbnail"
+            />
+            <div className="overlay">
+              <p>Click to view demo</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      {/* Event Moments Section */}
+<h3 className="gallery-subtitle">Event Moments</h3>
+<div className="event-moments-grid">
+  {eventMoments.map((moment, index) => (
     <div
-      className="poster-container"
+      key={index}
+      className="event-moment-container"
       onClick={() => {
-        setLightboxImage('/poff.jpg');
+        setLightboxImage(moment.src);
         setIsLightboxOpen(true);
       }}
     >
       <img
-        src="/poff.jpg" // Path to your poster image
-        alt="DesignQuest Official Poster"
-        className="poster-image"
+        src={moment.src}
+        alt={moment.alt}
+        className="event-moment-image"
       />
-      <div className="overlay">
+      <div className="event-moment-overlay">
         <p>Click to view full size</p>
       </div>
     </div>
+  ))}
+</div>
 
-    {/* Second Image with Zoom Effect */}
-    <div
-      className="poster-container"
-      onClick={() => {
-        setLightboxImage('/deadline.jpg');
-        setIsLightboxOpen(true);
-      }}
-    >
-      <img
-        src="/deadline.jpg" // Path to your new image
-        alt="DesignQuest Additional Image"
-        className="poster-image"
-      />
-      <div className="overlay">
-        <p>Click to view full size</p>
-      </div>
-    </div>
-{/*thrid image*/}
-    <div
-      className="poster-container"
-      onClick={() => {
-        setLightboxImage('/flexx.png');
-        setIsLightboxOpen(true);
-      }}
-    >
-      <img
-        src="/flexx.png" // Path to your poster image
-        alt="DesignQuest Official Poster"
-        className="poster-image"
-      />
-      <div className="overlay">
-        <p>Click to view full size</p>
-      </div>
-    </div>
-
-    {/*fourth image*/}
-    <div
-      className="poster-container"
-      onClick={() => {
-        setLightboxImage('/see.png');
-        setIsLightboxOpen(true);
-      }}
-    >
-      <img
-        src="/see.png" // Path to your poster image
-        alt="DesignQuest Official Poster"
-        className="poster-image"
-      />
-      <div className="overlay">
-        <p>Click to view full size</p>
-      </div>
-    </div>
-
-
-
-
-  </div>
-
-  {/* Custom Lightbox */}
-  {isLightboxOpen && (
-    <div className="lightbox" onClick={() => setIsLightboxOpen(false)}>
-      <img
-        src={lightboxImage} // Dynamically set the image source
-        alt="DesignQuest Gallery Image"
-        className="lightbox-image"
-      />
-    </div>
-  )}
-</section>
+      {/* Custom Lightbox */}
+      {isLightboxOpen && (
+        <div className="lightbox" onClick={() => setIsLightboxOpen(false)}>
+          <img
+            src={lightboxImage}
+            alt="Gallery Image"
+            className="lightbox-image"
+          />
+        </div>
+      )}
+    </section>
 
           {/* FAQs Section */}
           <section id="faqs" className="faq-section">
